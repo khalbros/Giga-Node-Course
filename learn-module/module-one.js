@@ -25,7 +25,7 @@ get("https://mern-todo-tracker.herokuapp.com", (res) => {
 // custom modules example
 
 const {greet} = require("./custom-module-one")
-const {respond} = require("./custom-module-two")
+const respond = require("./custom-module-two")
 
 function sendGreetings(time, person) {
   greet(time, person)
