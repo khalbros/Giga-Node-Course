@@ -21,3 +21,15 @@ get("https://mern-todo-tracker.herokuapp.com", (res) => {
     console.log("Data fetching Ends")
   })
 })
+
+// custom modules example
+
+const {greet} = require("./custom-module-one")
+const {respond} = require("./custom-module-two")
+
+function sendGreetings(time, person) {
+  greet(time, person)
+  respond(time)
+}
+
+sendGreetings("Morning", "Dad")
