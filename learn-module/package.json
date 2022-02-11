@@ -1,0 +1,15 @@
+{
+  "name": "giga-node-course",
+  "version": "1.0.0",
+  "description": "learn nodejs with giga-courses",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "khalbros",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0"
+  }
+}
