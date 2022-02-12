@@ -30,6 +30,7 @@ server.on("request", (req, res) => {
       console.log(data.toString())
       friends.push(JSON.parse(data.toString()))
     })
+    // req.pipe(res)
   } else if (item[1] === "friends") {
     res.setHeader("Content-Type", "application/json")
 
