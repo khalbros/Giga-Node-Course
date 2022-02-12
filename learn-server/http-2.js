@@ -23,6 +23,13 @@ server.on("request", (req, res) => {
     res.setHeader("Content-Type", "text/html")
     res.write("<body><h2>welcome</h2></body>")
     res.end()
+  }
+  // Posting data to the server
+  if (req.method === "POST" && item[1] === "friends") {
+    req.on("data", (data) => {
+      console.log(data.toString())
+      friends.push(JSON.parse(data.toString()))
+    })
   } else if (item[1] === "friends") {
     res.setHeader("Content-Type", "application/json")
 
