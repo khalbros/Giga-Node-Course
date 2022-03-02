@@ -2,6 +2,7 @@
 async function httpGetPlanets() {
   const response = await fetch("http://localhost:4000/planets")
   const planets = await response.json()
+  console.log(planets)
   return planets
 }
 

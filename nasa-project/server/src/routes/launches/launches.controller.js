@@ -5,21 +5,22 @@ const {
   deleteLaunch,
 } = require("../../models/launches.model")
 
-function httpGetAllLaunches(req, res) {
-  return res.status(200).json(getLaunches())
+async function httpGetAllLaunches(req, res) {
+  return res.status(200).json(await getLaunches())
 }
-function httpDeleteLaunches(req, res) {
+async function httpDeleteLaunches(req, res) {
   const launchID = Number(req.params.id)
-  if (!existLaunch(launchID)) {
+  const existed = await existLaunch(launchID)
+  if (!existed) {
     return res.status(404).json({
       Error: "Launch not found",
     })
   }
-  const aborted = deleteLaunch(launchID)
+  const aborted = await deleteLaunch(launchID)
   return res.status(200).json(aborted)
 }
 
-function httpAddNewLaunch(req, res) {
+async function httpAddNewLaunch(req, res) {
   const launch = req.body
   if (
     !launch.mission ||
@@ -33,7 +34,7 @@ function httpAddNewLaunch(req, res) {
   if (isNaN(launch.launchDate)) {
     return res.status(400).json({Error: "Invalid date"})
   }
-  addNewLaunch(launch)
+  await addNewLaunch(launch)
   res.status(201).json(launch)
 }
 

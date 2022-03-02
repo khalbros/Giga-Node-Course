@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test-watch": "jest --watch",
     "start": "nodemon src/server.js",
     "cluster": "pm2 start src/server.js -i max"
@@ -12,11 +12,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jset": {
+    "testEnviroment": "node"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "csv-parse": "^5.0.4",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
+    "mongoose": "^6.2.3",
     "morgan": "^1.10.0",
     "pm2": "^5.2.0"
   },
