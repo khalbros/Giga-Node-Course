@@ -1,3 +1,4 @@
+const getPagination = require("../../../services/query")
 const {
   getLaunches,
   addNewLaunch,
@@ -6,7 +7,9 @@ const {
 } = require("../../models/launches.model")
 
 async function httpGetAllLaunches(req, res) {
-  return res.status(200).json(await getLaunches())
+  const {skip, limit} = getPagination(req.query)
+  const launches = await getLaunches(skip, limit)
+  return res.status(200).json(launches)
 }
 async function httpDeleteLaunches(req, res) {
   const launchID = Number(req.params.id)
